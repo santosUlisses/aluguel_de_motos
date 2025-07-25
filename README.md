@@ -16,26 +16,33 @@ Arquitetura utilizando o padrão MVC .
 Painel Administrador : 
 
 
-<img width="1916" height="911" alt="painel adm" src="https://github.com/user-attachments/assets/6c86ad36-dd03-4a59-bdc5-27601727cac2" />
+
+<img width="1919" height="906" alt="painel administrador" src="https://github.com/user-attachments/assets/790e4dec-cbf0-44fd-b38c-2b6c31d8a7df" />
 
 
 
-<img width="1919" height="906" alt="lista de usuarios" src="https://github.com/user-attachments/assets/20a2f6a7-1d65-42c4-8526-55e6c53791fc" />
-
-<img width="1919" height="911" alt="lista de aluguel de usuario" src="https://github.com/user-attachments/assets/746ff993-13d0-4b47-8b4f-bb3fb62179db" />
-
-<img width="1919" height="917" alt="lista de motos" src="https://github.com/user-attachments/assets/e5b725c6-5fac-4936-8690-0caff203d0eb" />
+<img width="1919" height="904" alt="lista de usuarios" src="https://github.com/user-attachments/assets/73e3854b-e25b-4f7b-8f61-08ddc7880814" />
 
 
-<img width="1919" height="909" alt="lucro do sistema" src="https://github.com/user-attachments/assets/4d5bff71-c618-4615-8385-2c73882b9276" />
+
+<img width="1919" height="904" alt="alugueis do usuario" src="https://github.com/user-attachments/assets/23c26a73-a12e-47f1-995c-9017443cd972" />
+
+
+<img width="1919" height="904" alt="lista de motos" src="https://github.com/user-attachments/assets/072e296b-3f8e-44b9-92fc-75443fa7e153" />
+
+
+
+<img width="1919" height="908" alt="lucro do sistema" src="https://github.com/user-attachments/assets/789215aa-fa1a-4891-9b74-95c17d32b402" />
 
 <br><br><br><br><br>
 Painel do usuário : 
 
 
-<img width="1919" height="909" alt="motos disponiveis para usuario" src="https://github.com/user-attachments/assets/ce12303a-ee01-49da-b868-c45ea9f474cd" />
+<img width="1919" height="901" alt="lista de motos para usuario" src="https://github.com/user-attachments/assets/33e8b631-1e36-4802-9075-90d2c0edbe9b" />
 
 
-<img width="1919" height="912" alt="motos de usuario" src="https://github.com/user-attachments/assets/c68d1521-54ca-476b-9447-ccd33c115f47" />
 
-<img width="1919" height="905" alt="edição de dados de usuario" src="https://github.com/user-attachments/assets/14670589-5085-49f2-8ebb-f7ca77ba2f5c" />
+
+<img width="1919" height="903" alt="motos do usuario" src="https://github.com/user-attachments/assets/a02eebee-e896-448d-897b-d3417381bb64" />
+
+
