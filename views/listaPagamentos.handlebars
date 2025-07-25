@@ -1,0 +1,82 @@
+<div class="container my-5">
+    <div class="mb-4 text-center">
+        <h2 class="fw-bold"> Usuário: {{user.nome}}</h2>
+    </div>
+
+    <div class="mb-5">
+        <h4 class="mb-3"> Aluguéis ativos</h4>
+
+        {{#if alugueisAtivos}}
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            {{#each alugueisAtivos}}
+            <div class="col">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                        <p><strong>Início:</strong> {{this.data_inicio}}</p>
+                        <p><strong>Vencimento:</strong> {{this.data_vencimento}}</p>
+                        <p><strong>Valor do aluguel:</strong> {{this.valor_aluguel}}</p>
+                        {{#if this.Moto}}
+                        <p><strong>Moto:</strong> {{this.Moto.nome}}</p>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        {{else}}
+        <p class="text-muted">Nenhum aluguel registrado para este usuário.</p>
+        {{/if}}
+    </div>
+
+    <div class="mb-5">
+        <h4 class="mb-3"> Pagamentos</h4>
+
+        {{#if user.Pagamentos}}
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            {{#each user.Pagamentos}}
+            <div class="col">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                        <p><strong>Valor pago:</strong> R$ {{this.valor_pago}}</p>
+                        <p><strong>Data do pagamento:</strong> {{this.data_pagamento}}</p>
+
+                        <p><strong>Moto:</strong> {{this.Aluguel.Moto.nome}}</p>
+
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        {{else}}
+        <p class="text-muted">Nenhum pagamento registrado para este usuário.</p>
+        {{/if}}
+    </div>
+
+    <div class="mb-5">
+        <h4 class="mb-3"> Aluguéis inativos</h4>
+
+        {{#if alugueisInativos}}
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            {{#each alugueisInativos}}
+            <div class="col">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                        <p><strong>Início:</strong> {{this.data_inicio}}</p>
+                        <p><strong>Vencimento:</strong> {{this.data_vencimento}}</p>
+                        <p><strong>Valor do aluguel:</strong> {{this.valor_aluguel}}</p>
+                        {{#if this.Moto}}
+                        <p><strong>Moto:</strong> {{this.Moto.nome}}</p>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        {{else}}
+        <p class="text-muted">Nenhum aluguel registrado para este usuário.</p>
+        {{/if}}
+    </div>
+    <div class="text-end">
+        <a href="/lista/users" class="btn btn-outline-dark"> Voltar para lista</a>
+    </div>
+</div>

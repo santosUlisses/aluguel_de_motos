@@ -1,0 +1,33 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow p-4" style="width: 100%; max-width: 400px;">
+        <div class="card-body">
+            <h3 class="card-title mb-4 text-center">Login</h3>
+
+            <form action="/login" method="post">
+                <div class="mb-3">
+                    <label for="nome" class="form-label">Nome de usuário</label>
+                    <input type="text" class="form-control" id="nome" name="nome" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="senha" class="form-label">Senha</label>
+                    <input type="password" class="form-control" id="senha" name="senha" required>
+                </div>
+
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary">Entrar</button>
+                </div>
+            </form>
+
+            <div class="mt-3 text-center">
+                <a href="/cadastrar" class="text-decoration-none">Ainda não tem conta? <strong>Registre-se</strong></a>
+            </div>
+
+            {{#if error}}
+            <div class="alert alert-danger mt-4 text-center" role="alert">
+                LOGIN OU SENHA INVÁLIDOS
+            </div>
+            {{/if}}
+        </div>
+    </div>
+</div>

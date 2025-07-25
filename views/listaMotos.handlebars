@@ -1,0 +1,57 @@
+<div class="container my-5">
+    <hr>
+    <h2 class="text-center mb-4"> Motos Disponíveis</h2>
+
+    {{#if motosDisponiveis}}
+    <div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
+        {{#each motosDisponiveis}}
+        <div class="col">
+            <div class="card h-100 border-success shadow-sm">
+                <div class="card-header bg-success text-white">
+                    <h5 class="my-0">{{this.nome}}</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled mb-0">
+                        <li><strong>Marca:</strong> {{this.marca}}</li>
+                        <li><strong>Cor:</strong> {{this.cor}}</li>
+                        <li><strong>Status:</strong> {{this.disponibilidade}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{else}}
+    <p class="text-muted text-center">Nenhuma moto disponível no momento.</p>
+    {{/if}}
+
+    <hr>
+    <h2 class="text-center mb-4"> Motos Alugadas</h2>
+
+    {{#if motosAlugadas}}
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {{#each motosAlugadas}}
+        <div class="col">
+            <div class="card h-100 border-danger shadow-sm">
+                <div class="card-header bg-danger text-white">
+                    <h5 class="my-0">{{this.nome}}</h5>
+                </div>
+                <div class="card-body">
+                    <p><strong>Usuário:</strong> {{this.User.nome}}</p>
+                    <ul class="list-unstyled mb-0">
+                        <li><strong>Marca:</strong> {{this.marca}}</li>
+                        <li><strong>Cor:</strong> {{this.cor}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{else}}
+    <p class="text-muted text-center">Nenhuma moto está alugada no momento.</p>
+    {{/if}}
+
+    <div class="text-end mt-4">
+        <a href="/paineladm" class="btn btn-outline-dark"> Voltar</a>
+    </div>
+</div>

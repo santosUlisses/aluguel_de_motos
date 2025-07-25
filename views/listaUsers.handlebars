@@ -1,0 +1,41 @@
+<div class="container my-4">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {{#each users}}
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">{{this.nome}}</h5>
+
+                    {{#if this.Motos}}
+                    <h6 class="card-subtitle mb-2 text-muted">Motos alugadas:</h6>
+                    <ul class="list-group list-group-flush mb-3">
+                        {{#each this.Motos}}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            {{this.nome}}
+                            <a href="/user/pagamento/{{this.id}}" class="btn btn-sm btn-secondary">Atualizar
+                                Pagamento</a>
+                            <form action="/moto/remover/{{this.id}}" method="post">
+                               <input type="hidden" value="{{this.id}}" name="idMoto">
+                                <input type="submit" class="btn btn-sm btn-danger" value="remover moto"></input>
+
+                            </form>
+                        </li>
+                        {{/each}}
+
+                    </ul>
+                    {{else}}
+                    <p class="text-muted">Não há motos alugadas para este usuário.</p>
+                    {{/if}}
+                        <a href="/lista/pagamentos/{{this.id}}" class="btn btn-sm btn-success">Lista de pagamentos de usuário</a><br><br>
+
+                    <a href="/alugarmoto/{{this.id}}" class="btn btn-sm btn-primary w-100">Alugar moto</a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+    <div class="mt-4">
+        <a href="/paineladm" class="btn btn-outline-dark">Voltar</a>
+    </div>
+</div>

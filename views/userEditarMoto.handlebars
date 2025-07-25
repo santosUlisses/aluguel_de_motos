@@ -1,0 +1,28 @@
+<div class="container my-5">
+    <h3 class="mb-4">Motos de {{user.nome}}</h3>
+
+    {{#if user.Motos}}
+    <ul class="list-group mb-4">
+        {{#each user.Motos}}
+        <li class="list-group-item d-flex justify-content-between align-items-center flex-column flex-md-row">
+            <div class="mb-2 mb-md-0">
+                <strong>{{this.nome}}</strong> – <span class="text-muted">{{this.disponibilidade}}</span>
+            </div>
+
+            <div class="d-flex gap-2">
+                <a href="/moto/pagamento/{{this.id}}" class="btn btn-sm btn-outline-primary"> Pagamento</a>
+
+                <form action="/moto/remover/:id" method="post">
+                    <input type="hidden" value="{{this.id}}" name="idMoto">
+                    <button type="submit" class="btn btn-sm btn-danger"> Remover</button>
+                </form>
+            </div>
+        </li>
+        {{/each}}
+    </ul>
+    {{else}}
+    <p class="text-muted">Este usuário não possui motos cadastradas.</p>
+    {{/if}}
+
+    <a href="/lista/users" class="btn btn-outline-secondary"> Voltar</a>
+</div>

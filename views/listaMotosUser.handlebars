@@ -1,0 +1,32 @@
+<div class="container my-5">
+    <hr>
+    <h2 class="text-center mb-4"> Motos Disponíveis</h2>
+
+    {{#if motosDisponiveis}}
+    <div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
+        {{#each motosDisponiveis}}
+        <div class="col">
+            <div class="card h-100 border-success shadow-sm">
+                <div class="card-header bg-success text-white">
+                    <h5 class="my-0">{{this.nome}}</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled mb-0">
+                        <li><strong>Marca:</strong> {{this.marca}}</li>
+                        <li><strong>Cor:</strong> {{this.cor}}</li>
+                        <li><strong>Status:</strong> {{this.disponibilidade}}</li><br>
+                        <button type="button" class="w-100 btn btn-lg btn-outline-success">Contate-nos</button>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{else}}
+    <p class="text-muted text-center">Nenhuma moto disponível no momento.</p>
+    {{/if}}
+
+    <hr>
+
+</div>
+</div>

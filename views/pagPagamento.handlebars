@@ -1,0 +1,35 @@
+<div class="container my-5">
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">Detalhes do Aluguel</h5>
+        </div>
+
+        <div class="card-body">
+            <ul class="list-group list-group-flush mb-4">
+                <li class="list-group-item"><strong>Data de Início:</strong> {{aluguel.data_inicio}}</li>
+                <li class="list-group-item"><strong>Data de Vencimento:</strong> {{aluguel.data_vencimento}}</li>
+                <li class="list-group-item"><strong>Valor do Aluguel:</strong> R$ {{aluguel.valor_aluguel}}</li>
+                <li class="list-group-item"><strong>Status:</strong> {{aluguel.status}}</li>
+            </ul>
+
+            <form action="/moto/pagamento" method="post">
+                <input type="hidden" name="id" value="{{aluguel.id}}">
+                <input type="hidden" name="userId" value="{{aluguel.UserId}}">
+
+                <div class="mb-3">
+                    <label for="valor_pago" class="form-label">Valor Pago</label>
+                    <input type="text" class="form-control" id="valor_pago" name="valor_pago"
+                        value="{{aluguel.valor_aluguel}}" required>
+                </div>
+
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-success"> Realizar Pagamento</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="card-footer text-end">
+            <a href="/lista/users" class="btn btn-outline-secondary btn-sm"> Voltar</a>
+        </div>
+    </div>
+</div>

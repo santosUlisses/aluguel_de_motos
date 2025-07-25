@@ -1,0 +1,31 @@
+<div class="container my-5">
+    <div class="text-center mb-4">
+        <h2 class="fw-bold"> Motos ativas em meu nome</h2>
+        <p class="text-muted">Veja abaixo as motos que estão registradas no seu nome</p>
+    </div>
+
+    {{#if motos}}
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        {{#each motos}}
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">{{this.nome}}</h5>
+                    <ul class="list-unstyled">
+                        <li><strong>Marca:</strong> {{this.marca}}</li>
+                        <li><strong>Cor:</strong> {{this.cor}}</li>
+                        <li><strong>Status:</strong> {{this.disponibilidade}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{else}}
+    <p class="text-center text-muted">Você não possui nenhuma moto ativa no momento.</p>
+    {{/if}}
+
+    <div class="text-end mt-4">
+        <a href="/lista/motos/user" class="btn btn-outline-dark"> Voltar</a>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="container my-5 d-flex justify-content-center">
+    <div class="card shadow w-100" style="max-width: 500px;">
+        <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">Criar conta</h5>
+        </div>
+
+        <div class="card-body">
+            <form action="/cadastrar" method="post">
+                <div class="mb-3">
+                    <label for="nome" class="form-label">Nome</label>
+                    <input type="text" class="form-control" id="nome" name="nome" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">E-mail</label>
+                    <input type="email" class="form-control" id="email" name="email"  required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="senha" class="form-label"> Senha</label>
+                    <input type="password" class="form-control" id="senha" name="senha"
+                        placeholder="Digite uma senha">
+                </div>
+
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-success"> Cadastrar</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="card-footer text-end">
+            <a href="/" class="btn btn-outline-secondary btn-sm"> Voltar</a>
+        </div>
+    </div>
+</div>
