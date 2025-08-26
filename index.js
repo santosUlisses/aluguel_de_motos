@@ -4,11 +4,12 @@ const session = require('express-session');
 const app = express();
 const router = require('./router/routers');
 const conn = require('./db/db');
-const User=require('./models/User')
-const Moto=require('./models/Moto')
-const Aluguel=require('./models/Aluguel')
-const Pagamentos=require('./models/Pagamentos')
-const relacionamento=require('./models/relacionamento');
+require('dotenv').config();
+const User = require('./models/User')
+const Moto = require('./models/Moto')
+const Aluguel = require('./models/Aluguel')
+const Pagamentos = require('./models/Pagamentos')
+const relacionamento = require('./models/relacionamento');
 
 
 app.engine('handlebars', exphbs.engine());

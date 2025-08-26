@@ -1,0 +1,54 @@
+<div class="container my-5">
+    <h2 class="fw-bold mb-4 text-primary">
+        <i class="bi bi-house-door"></i> Meus Aluguéis
+    </h2>
+
+
+    <div class="mb-5">
+        <h4 class="text-success fw-semibold mb-3">
+            <i class="bi bi-check-circle-fill"></i> Aluguéis Ativos
+        </h4>
+        <div class="row g-4">
+            {{#each aluguelAtivo}}
+            <div class="col-md-6">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold text-dark">{{this.nome}}</h5>
+                        <p class="card-text mb-2"><strong>Início:</strong> {{this.data_inicio}}</p>
+                        <p class="card-text mb-2"><strong>Vencimento:</strong> {{this.data_vencimento}}</p>
+                        <p class="card-text mb-2"><strong>Valor:</strong> R$ {{this.valor_aluguel}}</p>
+                        <span class="badge bg-success px-3 py-2"
+                            style="text-transform: uppercase;">{{this.status}}</span>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
+
+    <div>
+        <h4 class="text-secondary fw-semibold mb-3">
+            <i class="bi bi-x-circle-fill"></i> Aluguéis Inativos
+        </h4>
+        <div class="row g-4">
+            {{#each aluguelInativo}}
+            <div class="col-md-6">
+                <div class="card shadow-sm border-0 h-100 bg-light">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold text-dark">{{this.nome}}</h5>
+                        <p class="card-text mb-2"><strong>Início:</strong> {{this.data_inicio}}</p>
+                        <p class="card-text mb-2"><strong>Vencimento:</strong> {{this.data_vencimento}}</p>
+                        <p class="card-text mb-2"><strong>Valor:</strong> R$ {{this.valor_aluguel}}</p>
+                        <span class="badge bg-secondary px-3 py-2"
+                            style="text-transform: uppercase;">{{this.status}}</span>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
+<div class="text-end mt-4">
+    <a href="/painel/usuario" class="btn btn-outline-dark"> Voltar</a>
+</div>

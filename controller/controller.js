@@ -46,6 +46,10 @@ class Metodos {
         }
     }
 
+    painelUsuario(req, res) {
+        res.render('painel_usuario');
+    }
+
     logout(req, res) {
         req.session.destroy((error) => {
             if (error) {
@@ -101,15 +105,12 @@ class Metodos {
 
     async editUser(req, res) {
         const id = req.session.userId;
-        const nome = req.body.nome;
-        const email = req.body.email;
-        const senha = req.body.senha;
-        console.log(id, nome, email, senha);
+        const { nome, email, senha } = req.body;
         const salt = await bcrypt.genSalt(10);
         const senhaHash = await bcrypt.hash(senha, salt);
         try {
             await User.update({ nome, email, senha: senhaHash }, { where: { id: id } });
-            res.redirect('/lista/motos/user');
+            res.redirect(`/user/edit/${id}`);
         } catch (error) {
             console.log(error);
         }
@@ -188,18 +189,28 @@ class Metodos {
         }
     }
     async listaPagamentosUser(req, res) {
-        const id = req.params.id
+        let id;
+        if (req.session.admin) {
+            id = req.params.id
+        } else {
+            id = req.session.userId;
+        }
 
-        const user = await User.findOne({ where: { id: id }, include: [{ model: Aluguel, include: [Moto] }, { model: Pagamentos, include: [{ model: Aluguel, include: [Moto] }] }, { model: Moto }], });
+        try {
+            const user = await User.findOne({ where: { id: id }, include: [{ model: Aluguel, include: [Moto] }, { model: Pagamentos, include: [{ model: Aluguel, include: [Moto] }] }, { model: Moto }], });
 
-        const alugueisAtivos = user.Aluguels.map(a => a.get({ plain: true },)).filter(a => a.status === "ativo");
-        const alugueisInativos = user.Aluguels.map(a => a.get({ plain: true },)).filter(a => a.status === "inativo");
-        const pagamentosLiquidados = user.Pagamentos.map(p => p.get({ plain: true }));
+            const alugueisAtivos = user.Aluguels.map(a => a.get({ plain: true },)).filter(a => a.status === "ativo");
+            const alugueisInativos = user.Aluguels.map(a => a.get({ plain: true },)).filter(a => a.status === "inativo");
+            const pagamentosLiquidados = user.Pagamentos.map(p => p.get({ plain: true }));
 
-        console.log(user.Pagamentos[0].Aluguel?.Moto?.nome);
+            console.log(user.Pagamentos[0].Aluguel?.Moto?.nome);
 
 
-        res.render('listaPagamentos', { pagamentosLiquidados, user: user.get({ plain: true }), alugueisAtivos, alugueisInativos });
+            res.render('listaPagamentos', { pagamentosLiquidados, user: user.get({ plain: true }), alugueisAtivos, alugueisInativos });
+        } catch (error) {
+            console.log(error);
+            res.redirect(`/lista/users`);
+        }
     }
 
     async pagTotalLucro(req, res) {
@@ -213,6 +224,34 @@ class Metodos {
         const motos = await Moto.findAll({ where: { UserId: id }, raw: true });
         console.log(motos)
         res.render('pagMotosUser', { motos })
+    }
+
+    async alugueisUsuario(req, res) {
+        const id = req.session.userId;
+        // const data = new Date();
+        // const dataVencimento = `${data.getFullYear()}-${data.getMonth() + 1}-${data.getDate() + 7}`
+        // console.log(dataVencimento)
+
+        try {
+            const alugueis = await Aluguel.findAll({ where: { UserId: id }, include: [{ model: Moto, attributes: ['nome'] }] });
+            const aluguelFormatado = alugueis.map(a => a.get({ plain: true })).map(af => {
+                return {
+                    nome: af.Moto.nome,
+                    status: af.status,
+                    data_inicio: af.data_inicio,
+                    data_vencimento: af.data_vencimento,
+                    valor_aluguel: af.valor_aluguel,
+                }
+            });
+            const aluguelAtivo = aluguelFormatado.filter(ativo => ativo.status === "ativo");
+            const aluguelInativo = aluguelFormatado.filter(ativo => ativo.status === "inativo");
+
+
+
+            res.render('alugueis_usuario', { aluguelAtivo, aluguelInativo });
+        } catch (error) {
+            console.log(error);
+        }
     }
 }
 

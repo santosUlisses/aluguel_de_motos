@@ -5,8 +5,8 @@
         </div>
 
         <div class="card-body">
-            <form action="/user/editar" method="post">
-            <input type="hidden" value="{{user.id}}">
+            <form action="/user/editar" method="post" id="form">
+                <input type="hidden" value="{{user.id}}">
                 <div class="mb-3">
                     <label for="nome" class="form-label">Nome</label>
                     <input type="text" class="form-control" id="nome" name="nome" value="{{user.nome}}" required>
@@ -22,6 +22,16 @@
                     <input type="password" class="form-control" id="senha" name="senha"
                         placeholder="Digite uma nova senha">
                 </div>
+                <div class="mb-3">
+                    <label for="senha" class="form-label">Confirme a Senha</label>
+                    <input type="password" class="form-control" id="confirmarSenha" name="confirmarSenha"
+                        placeholder="Confirme a nova senha">
+                </div>
+
+
+                <div class="alert alert-danger text-center mt-4 fw-bold" style="display: none;" id="msg_senha">
+                    🚫 As senhas não se coincidem!
+                </div>
 
                 <div class="d-grid">
                     <button type="submit" class="btn btn-success"> Salvar Alterações</button>
@@ -30,7 +40,25 @@
         </div>
 
         <div class="card-footer text-end">
-            <a href="/lista/motos/user" class="btn btn-outline-secondary btn-sm"> Voltar</a>
+            <a href="/painel/usuario" class="btn btn-outline-secondary btn-sm"> Voltar</a>
         </div>
     </div>
 </div>
+
+
+<script>
+
+    document.getElementById("form").addEventListener('submit', (e) => {
+        const senha = document.getElementById("senha").value;
+        const confirmarSenha = document.getElementById("confirmarSenha").value;
+        const msg_senha = document.getElementById("msg_senha");
+        if (senha !== confirmarSenha) {
+            e.preventDefault();
+            msg_senha.style.display = "block";
+        }
+
+    });
+
+
+
+</script>

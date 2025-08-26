@@ -1,0 +1,51 @@
+<div class="container my-5">
+    <h2 class="fw-bold text-center mb-4 text-primary">
+        <i class="bi bi-person-circle"></i> Painel do Usuário
+    </h2>
+
+    <div class="row g-4 justify-content-center">
+
+        <div class="col-md-4">
+            <a href="/user/edit/:{{userId}}" class="text-decoration-none">
+                <div class="card shadow-sm border-0 h-100 text-center p-4 hover-shadow">
+                    <i class="bi bi-person-gear fs-1 text-primary mb-3"></i>
+                    <h5 class="fw-bold text-dark">Editar Perfil</h5>
+                    <p class="text-muted">Atualize seus dados de acesso e informações pessoais.</p>
+                </div>
+            </a>
+        </div>
+
+
+        <div class="col-md-4">
+            <a href="/pagMotosUser/{{userId}}" class="text-decoration-none">
+                <div class="card shadow-sm border-0 h-100 text-center p-4 hover-shadow">
+                    <i class="mb-3" style="font-size: 45px;">🏍️</i>
+                    <h5 class="fw-bold text-dark">Minhas Motos</h5>
+                    <p class="text-muted">Veja suas motos alugadas.</p>
+                </div>
+            </a>
+        </div>
+
+
+        <div class="col-md-4">
+            <a href="/alugueis/usuario/:{{userId}}" class="text-decoration-none">
+                <div class="card shadow-sm border-0 h-100 text-center p-4 hover-shadow">
+                    <i class="bi bi-receipt fs-1 text-warning mb-3"></i>
+
+                    <h5 class="fw-bold text-dark">Meus Aluguéis</h5>
+                    <p class="text-muted">Acompanhe seus aluguéis ativos e finalizados.</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a href="/lista/pagamentos/:{{userId}}" class="text-decoration-none">
+                <div class="card shadow-sm border-0 h-100 text-center p-4 hover-shadow">
+                    <i class="bi bi-cash-coin  fs-1 text-success mb-3"></i>
+
+                    <h5 class="fw-bold text-dark">Histórico de pagamento</h5>
+                    <p class="text-muted">Veja todos os seus pagamentos realizados.</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
