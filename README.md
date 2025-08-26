@@ -49,6 +49,7 @@ Painel do usuário :
 
 
 
+<img width="1919" height="901" alt="alugueis do usuario" src="https://github.com/user-attachments/assets/a7a5c145-4e1d-4e46-8ebb-d028e5182fad" />
 
 <img width="1919" height="896" alt="motos do usuario" src="https://github.com/user-attachments/assets/e9d7f21f-1231-4bae-b644-25498f20eb4e" />
 
