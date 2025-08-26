@@ -43,6 +43,7 @@ Painel Administrador :
 Painel do usuário : 
 
 
+<img width="1919" height="902" alt="painel usuario" src="https://github.com/user-attachments/assets/85934eb2-14ea-4018-9d7d-a6a29028e4de" />
 
 <img width="1919" height="911" alt="lista de motos para usuario" src="https://github.com/user-attachments/assets/66c9e9d1-8ff7-4b6f-8bca-ebb96d3f761f" />
 
