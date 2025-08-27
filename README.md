@@ -1,7 +1,7 @@
  Sistema de Aluguel de Motos<br>
 Este projeto tem como objetivo oferecer uma solução web completa para o gerenciamento de aluguel de motos, com funcionalidades específicas para usuários e administradores.<br>
 Funcionalidades para o Usuário:
-Cadastro e login de contas, visualização das motos disponíveis para aluguel, acompanhamento das motos ativas no nome do usuário, e dição de dados pessoais através de uma interface simples.
+Cadastro e login de contas, visualização das motos disponíveis para aluguel, acompanhamento das motos ativas no nome do usuário, edição de dados pessoais através de uma interface simples.
 
 Funcionalidades do Administrador:
 Painel exclusivo para gerenciar o sistema, visualização de todos os usuários cadastrados,criação e listagem de todas as motos, com status disponível ou alugada, vincular ou desvincular motos a usuários,
