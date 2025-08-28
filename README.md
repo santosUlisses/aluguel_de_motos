@@ -26,13 +26,8 @@ Painel Administrador :
 
 
 
+<img width="1919" height="899" alt="lista de motos" src="https://github.com/user-attachments/assets/3ecd3981-a0c5-4e57-b13c-1f6ff1ef278f" />
 
-<img width="1919" height="903" alt="alugueis de usuario" src="https://github.com/user-attachments/assets/c6d62f17-7917-474c-85a8-f07a26c0d2bd" />
-
-
-
-
-<img width="1919" height="901" alt="lista de motos" src="https://github.com/user-attachments/assets/57b2c618-3b80-4fab-ad56-22e0b3ec4e2f" />
 
 
 
