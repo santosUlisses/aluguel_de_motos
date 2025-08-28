@@ -22,7 +22,8 @@ Painel Administrador :
 
 
 
-<img width="1919" height="912" alt="lista de usuarios" src="https://github.com/user-attachments/assets/ad8ae568-b95a-4c31-ac8c-c461a9dbba75" />
+<img width="1919" height="902" alt="lista de usuarios" src="https://github.com/user-attachments/assets/c3e1e6ec-50d9-46a6-81dd-fe9b4cdee59e" />
+
 
 
 
