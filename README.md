@@ -55,3 +55,7 @@ Painel do usuário :
 
 
 
+
+
+<img width="1919" height="899" alt="histórico de pagamentos" src="https://github.com/user-attachments/assets/e958b147-a58c-4f98-8e0d-b185bd9a5982" />
+
