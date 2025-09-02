@@ -1,0 +1,81 @@
+<div class="container my-5 d-flex justify-content-center">
+    <div class="card shadow w-100" style="max-width: 500px;">
+        <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">Editar Moto</h5>
+        </div>
+
+        <div class="card-body">
+            <form action="/moto/editar" method="post" id="form">
+                <input type="hidden" value="{{moto.id}}" name="id">
+                <div class="mb-3">
+                    <label for="nome da moto" class="form-label">Nome da moto</label>
+                    <input type="text" class="form-control" id="nome" name="nome" value="{{moto.nome}}" required
+                        pattern="[0-9-A-Za-zÀ-ÿ\s]+" title="Digite apenas letras e espaços">
+                </div>
+
+                <div class="mb-3">
+                    <label for="marca" class="form-label">Marca</label>
+                    <input type="marca" class="form-control" id="marca" name="marca" value="{{moto.marca}}" required
+                        pattern="[A-Za-zÀ-ÿ\s]+" title="Digite apenas letras e espaços">
+                </div>
+                <div class="mb-3">
+                    <label for="cor" class="form-label">Cor</label>
+                    <input type="cor" class="form-control" id="cor" name="cor" value="{{moto.cor}}" required
+                        pattern="[A-Za-zÀ-ÿ\s]+" title="Digite apenas letras e espaços">
+                </div>
+
+                <div class="mb-3">
+                    <label for="disponibilidade" class="form-label">Disponibilidade :</label>
+                    <select name="disponibilidade">
+                        <option value="disponivel" style="text-transform: capitalize;">{{moto.disponibilidade}}</option>
+                        <option value="alugada">Alugada</option>
+                    </select>
+                </div>
+
+
+
+                {{#if msg_success}}
+                <div class="alert alert-success text-center mt-4 fw-bold" id="flash-message">
+                    Dados Atualizados!
+                </div>
+                {{/if}}
+
+
+
+                {{#if msg_error}}
+                <div class="alert alert-danger text-center mt-4 fw-bold" style="display: none;" id="msg_erro">
+                    🚫 Erro ao editar dados!
+                </div>
+                {{/if}}
+
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-success"> Salvar Alterações</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="card-footer text-end">
+            <a href="/lista/motos" class="btn btn-outline-secondary btn-sm"> Voltar</a>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+
+
+    setTimeout(() => {
+        const flash = document.getElementById("flash-message");
+        const erro = document.getElementById("msg_erro");
+
+        if (flash || erro) {
+
+            setTimeout(() => { flash.remove(), erro.remove() }, 500);
+        }
+
+    }, 3000)
+
+
+
+</script>

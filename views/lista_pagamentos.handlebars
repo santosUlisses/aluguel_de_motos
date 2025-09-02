@@ -1,0 +1,40 @@
+<div class="container my-5">
+
+    <div class="mb-4 text-center">
+        <h2 class="fw-bold text-primary">Usuário: {{usuario.nome}}</h2>
+        <hr class="w-25 mx-auto">
+    </div>
+
+
+
+
+    <div class="mb-5">
+        <h4 class="mb-3 text-info"><i class="bi bi-cash-coin me-2"></i>Pagamentos</h4>
+
+        {{#if pagamentosLiquidados}}
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            {{#each pagamentosLiquidados}}
+            <div class="col">
+                <div class="card border-info shadow-sm h-100">
+                    <div class="card-body">
+                        <p><strong>💵 Valor pago:</strong> R$ {{this.valor_pago}}</p>
+                        <p><strong>📅 Data do pagamento:</strong> {{this.data_pagamento}}</p>
+                        <p><strong>🏍️ Moto:</strong> {{this.moto}}</p>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        {{else}}
+        <p class="text-muted fst-italic">Nenhum pagamento registrado para este usuário.</p>
+        {{/if}}
+    </div>
+
+
+
+    <div class="text-end">
+        <a href="/lista/users" class="btn btn-dark px-4">
+            <i class="bi bi-arrow-left"></i> Voltar para lista
+        </a>
+    </div>
+</div>

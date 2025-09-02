@@ -1,0 +1,77 @@
+<div class="container my-5 d-flex justify-content-center">
+    <div class="card shadow w-100" style="max-width: 500px;">
+        <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">Cadastrar moto</h5>
+        </div>
+
+        <div class="card-body">
+            <form action="/moto/cadastro" method="post" id="form">
+                <div class="mb-3">
+                    <label for="nome" class="form-label">Nome</label>
+                    <input type="text" class="form-control" name="nome" required pattern="[A-Za-zÀ-ÿ\s]+"
+                        title="Digite apenas letras e espaços">
+                </div>
+
+                <div class="mb-3">
+                    <label for="marca" class="form-label">Marca</label>
+                    <input type="text" class="form-control" name="marca" required pattern="[A-Za-zÀ-ÿ\s]+"
+                        title="Digite apenas letras e espaços">
+                </div>
+
+                <div class="mb-3">
+                    <label for="cor" class="form-label"> Cor</label>
+                    <input type="text" class="form-control" name="cor" pattern="[A-Za-zÀ-ÿ\s]+"
+                        title="Digite apenas letras e espaços">
+                </div>
+
+                {{#if msg_success}}
+                <div class="alert alert-success text-center mt-4 fw-bold" id="flash-message">
+                    Moto cadastrada!
+                </div>
+                {{/if}}
+
+                {{#if msg_error}}
+                <div class="alert alert-danger text-center mt-4 fw-bold" id="flash-message">
+                    Erro ao cadastrar a moto
+                </div>
+                {{/if}}
+
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-success"> Cadastrar</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="card-footer text-end">
+            <a href="/painel/admin" class="btn btn-outline-secondary btn-sm"> Voltar</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script>
+
+    document.getElementById("form").addEventListener('submit', (e) => {
+        const senha = document.getElementById("senha").value;
+        const confirmarSenha = document.getElementById("confirmarSenha").value;
+        const msg_senha = document.getElementById("msg_senha");
+        if (senha !== confirmarSenha) {
+            e.preventDefault();
+            msg_senha.style.display = "block";
+        }
+
+    });
+
+    setTimeout(() => {
+        const flash = document.getElementById("flash-message");
+
+        if (flash) {
+
+            setTimeout(() => flash.remove(), 500);
+        }
+
+    }, 3000)
+
+</script>

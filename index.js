@@ -4,11 +4,9 @@ const session = require('express-session');
 const app = express();
 const router = require('./router/routers');
 const conn = require('./db/db');
+const flash = require('connect-flash');
 require('dotenv').config();
-const User = require('./models/User')
-const Moto = require('./models/Moto')
-const Aluguel = require('./models/Aluguel')
-const Pagamentos = require('./models/Pagamentos')
+
 const relacionamento = require('./models/relacionamento');
 
 
@@ -25,8 +23,11 @@ app.use(session({
     saveUninitialized: false,
     cookie: { maxAge: 360000000 },
 }));
+app.use(flash())
 
 app.use((req, res, next) => {
+    res.locals.msg_success = req.flash('msg_success');
+    res.locals.msg_error = req.flash('msg_error');
     res.locals.nome = req.session.nome || null;
     res.locals.id = !!req.session.id;
     res.locals.admin = !!req.session.admin;

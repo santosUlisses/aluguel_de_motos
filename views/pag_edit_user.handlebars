@@ -22,11 +22,19 @@
                     <input type="password" class="form-control" id="senha" name="senha"
                         placeholder="Digite uma nova senha">
                 </div>
+                
                 <div class="mb-3">
                     <label for="senha" class="form-label">Confirme a Senha</label>
                     <input type="password" class="form-control" id="confirmarSenha" name="confirmarSenha"
                         placeholder="Confirme a nova senha">
                 </div>
+
+                {{#if msg_success}}
+                <div class="alert alert-success text-center mt-4 fw-bold" id="flash-message">
+                    Dados Atualizados!
+                </div>
+                {{/if}}
+
 
 
                 <div class="alert alert-danger text-center mt-4 fw-bold" style="display: none;" id="msg_senha">
@@ -59,6 +67,14 @@
 
     });
 
+    setTimeout(() => {
+        const flash = document.getElementById("flash-message");
 
+        if (flash) {
+
+            setTimeout(() => flash.remove(), 500);
+        }
+
+    }, 3000)
 
 </script>

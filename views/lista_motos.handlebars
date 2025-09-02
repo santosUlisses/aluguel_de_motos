@@ -1,0 +1,86 @@
+<div class="container my-5">
+
+    <h2 class="text-center mb-4 text-success">
+        <i class="mb-3" style="font-size: 45px;">🏍️</i> Motos Disponíveis
+    </h2>
+
+    {{#if motosDisponiveis}}
+    <div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
+        {{#each motosDisponiveis}}
+        <div class="col">
+            <div class="card h-100 border-success shadow">
+                <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">{{this.nome}}</h5>
+                    <span class="badge bg-light text-success">Disponível</span>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush mb-3">
+                        <li class="list-group-item"><strong>Marca:</strong> {{this.marca}}</li>
+                        <li class="list-group-item" style="text-transform: capitalize;"><strong>Cor:</strong>
+                            {{this.cor}}</li>
+                        <li class="list-group-item"><strong>Status:</strong> {{this.disponibilidade}}</li>
+                    </ul>
+                    <div class="d-flex justify-content-between">
+                        <a href="/moto/editar/{{this.id}}" class="btn btn-outline-secondary btn-sm" title="Editar">
+                            <i class="bi bi-pencil"></i>
+                        </a>
+                        <form action="/moto/remover/{{this.id}}" method="post" class="d-inline">
+                            <button type="submit" class="btn btn-danger btn-sm" title="Remover">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{else}}
+    <p class="text-muted text-center">Nenhuma moto disponível no momento.</p>
+    {{/if}}
+
+
+
+    <hr>
+    <h2 class="text-center mb-4 text-danger">
+        <i class="bi bi-lock-fill"></i> Motos Alugadas
+    </h2>
+
+    {{#if motosAlugadas}}
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {{#each motosAlugadas}}
+        <div class="col">
+            <div class="card h-100 border-danger shadow">
+                <div class="card-header bg-danger text-white d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">{{this.nome}}</h5>
+                    <span class="badge bg-light text-danger">Alugada</span>
+                </div>
+                <div class="card-body">
+                    <p><strong>Usuário:</strong> {{this.User.nome}}</p>
+                    <ul class="list-group list-group-flush mb-3">
+                        <li class="list-group-item"><strong>Marca:</strong> {{this.marca}}</li>
+                        <li class="list-group-item"><strong>Cor:</strong> {{this.cor}}</li>
+                    </ul>
+                    <div class="d-flex justify-content-between">
+                        <a href="/moto/editar/{{this.id}}" class="btn btn-outline-secondary btn-sm" title="Editar">
+                            <i class="bi bi-pencil"></i>
+                        </a>
+                        <form action="/moto/remover/{{this.id}}" method="post" class="d-inline">
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{else}}
+    <p class="text-muted text-center">Nenhuma moto está alugada no momento.</p>
+    {{/if}}
+
+    <div class="text-end mt-4">
+        <a href="/painel/admin" class="btn btn-outline-dark">
+            <i class="bi bi-arrow-left"></i> Voltar
+        </a>
+    </div>
+</div>
